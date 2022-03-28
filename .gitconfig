@@ -1,7 +1,7 @@
 # -*- mode: conf -*-
 [user]
-	name = Fernando Pérez
-	email = fernando.perez@berkeley.edu
+	name = xingruiyeee
+	email = xyekk826@berkeley.edu
 
 [include]
   # For Github username / creds / system-specific stuff, etc
@@ -75,3 +75,16 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[diff "jupyternotebook"]
+	command = git-nbdiffdriver diff
+[merge "jupyternotebook"]
+	driver = git-nbmergedriver merge %O %A %B %L %P
+	name = jupyter notebook merge driver
+[difftool "nbdime"]
+	cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
+[difftool]
+	prompt = false
+[mergetool "nbdime"]
+	cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[mergetool]
+	prompt = false
